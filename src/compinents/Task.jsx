@@ -1,15 +1,18 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../feactures/todoSlice";
 const Task = () => {
     const dispatch = useDispatch();
-    const inputRef = useRef(null);
+
+    const [input,setInput]  =useState('') 
+
+    // const inputRef = useRef(null);
   
     function addNewTask() {
-      const task = inputRef.current.value.trim();
-      if (task !== "") {
-        dispatch(addTodo(task));
-        inputRef.current.value = "";
+    //   const task = inputRef.current.value.trim();
+      if (input !== "") {
+        dispatch(addTodo(input));
+      setInput('')
       }
     }
   
@@ -19,7 +22,9 @@ const Task = () => {
           <input
             type="text"
             placeholder="Add task here..."
-            ref={inputRef}
+            value={input}
+            onChange={(e)=>setInput(e.target.value)}
+            // ref={inputRef}
             className="taskInput"
           />
           <button onClick={addNewTask}>Add task</button>
