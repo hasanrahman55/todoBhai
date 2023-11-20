@@ -1,36 +1,25 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { addTodoItem } from "../feactures/todoSlice";
 
 function TodoForm() {
-
-  cosnt[(input, setInput)] = useState();
+  const [todo, setTodo] = useState("");
   const dispatch = useDispatch();
 
- const addTodo =()=>{
-    e.preventDefault()
-    dispatch(addTodo(input) )
-    setInput('')
+  const addTodo = () => {
 
- }
-  // const [todo,setTodo] =useState([])
-
-  // const {addTodo}=useTodo()
-
-  // const add =()=>{
-  //     if(!todo)return
-
-  //     addTodo({todo:todo,isChecked:false})
-  //     setTodo('')
-
-  // }
+    // e.preventDefault()
+    dispatch(addTodoItem( todo ));
+    setTodo("");
+  };
 
   return (
     <form onSubmit={addTodo} className="flex">
       <input
         type="text"
         placeholder="Write Todo..."
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
+        value={todo}
+        onChange={(e) => setTodo(e.target.value)}
         className="w-full border border-black/10 rounded-l-lg px-3 outline-none duration-150 bg-white/20 py-1.5"
       />
       <button

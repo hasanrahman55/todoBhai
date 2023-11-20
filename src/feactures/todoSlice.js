@@ -1,20 +1,20 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
-  todos: [{ id: nanoid() , message:"Hasan",isChecked:false}],
+  todos: [{ id:1, message:"Hasan"}],
 };
 
 export const todoSlice = createSlice({
-  name: "todo",
+  name: "todos",
   initialState,
   reducers: {
-    addTodo:(state,action)=>{
-      const todo = { id: nanoid() , message:action.payload,isChecked:false}
+    addTodoItem:(state,action)=>{
+      const todo = { id: nanoid() , message:action.payload}
       state.todos.push(todo)
     }
   },
 });
 
-export const {} = todoSlice.actions;
+export const {addTodoItem} = todoSlice.actions;
 
 export default todoSlice.reducer;
