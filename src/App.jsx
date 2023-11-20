@@ -1,7 +1,8 @@
 import { Provider } from "react-redux";
 import { store } from "./app/store";
-import TodoForm from "./components/TodoForm";
-import Todos from "./components/Todos";
+
+import Task from "./compinents/Task";
+import TaskList from "./compinents/TaskList";
 
 
 function App() {
@@ -9,8 +10,8 @@ function App() {
 
   return (
    <Provider store={store}>
-    <TodoForm/>
-    <Todos/>
+  <Task/>
+  <TaskList/>
    </Provider>
   );
 }
